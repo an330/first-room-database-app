@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailviewmodel"
+            type="com.example.myfirstapp.auth.DetailViewmodel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/purple_200"
+        android:layout_height="match_parent"
+        tools:context=".auth.DetailActivity">
+
+        <EditText
+            android:id="@+id/et_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter first name"
+            android:inputType="text"
+            android:ems="12"
+            android:text="@={detailviewmodel.firstname}"
+            android:textAlignment="center"
+            android:padding="10sp"
+            android:layout_margin="10dp"
+            android:textColor="#501515"
+
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/et_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter last name"
+            android:inputType="text"
+            android:ems="12"
+            android:text="@={detailviewmodel.lastname}"
+            android:layout_margin="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_below="@+id/et_firstname"
+            android:padding="10sp"
+            android:textColor="#501515"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <NumberPicker
+            android:id="@+id/numberpicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_lastname"
+
+            android:value="@{detailviewmodel.numberPicker}"
+            android:orientation="vertical"
+            android:paddingTop="20sp"
+            android:layout_centerInParent="true"
+            tools:ignore="Deprecated" />
+
+        <Button
+            android:id="@+id/bt_pick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/numberpicker"
+            android:layout_marginTop="20sp"
+            android:onClick="@{()->detailviewmodel.setNumber()}"
+            android:layout_centerInParent="true"
+            android:text="YEAr" />
+
+        <RadioGroup
+            android:id="@+id/radioGrp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_below="@+id/bt_pick"
+            android:paddingTop="64dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <RadioButton
+                android:id="@+id/radioM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:checked="@{detailviewmodel.radio}"
+                android:layout_weight="1"
+                android:textSize="30dp"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/radioF"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:checked="@{detailviewmodel.radio}"
+                android:layout_weight="1"
+                android:textSize="30dp"
+                android:text="Female" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/rbt"
+            android:text="select"
+            android:onClick="@{()->detailviewmodel.setButton()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/radioGrp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+</layout>

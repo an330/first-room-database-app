@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.myfirstapp.auth.AuthViewmodel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#66FFDDFF"
+        tools:context="auth.Login">
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome"
+            android:textSize="40dp"
+            android:paddingRight="20dp"
+            android:textAlignment="center"
+            android:textColor="#FFC107"
+            android:layout_margin="100dp" />
+
+        <EditText
+            android:id="@+id/et_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:ems="12"
+            android:text="@={viewmodel.username}"
+            android:hint="Enter Username"
+            android:inputType="textPersonName"
+            android:textColor="#3AB3A8"
+            android:textSize="50dp" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="#501515"
+            android:ems="12"
+            android:text="@={viewmodel.password}"
+            android:inputType="textPassword"
+            android:textSize="50dp"
+            android:textAlignment="center"
+            android:layout_below="@id/et_username"
+            android:hint="Password" />
+
+        <Button
+            android:id="@+id/bt_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:padding="10sp"
+            android:hint="SUBMIT"
+
+            android:onClick="@{() -> viewmodel.signUp()}"
+            android:layout_below="@id/et_password"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textFontWeight="20"
+            android:textSize="30sp"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/bt_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:padding="10sp"
+            android:text="reset"
+            android:onClick="@{() -> viewmodel.reset()}"
+            android:textAlignment="center"
+            android:layout_below="@id/et_password"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="true"
+            android:textFontWeight="20"
+            android:textSize="30sp"
+            android:textStyle="italic" />
+
+    </RelativeLayout>
+</layout>
